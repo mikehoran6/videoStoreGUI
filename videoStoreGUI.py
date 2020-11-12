@@ -17,18 +17,20 @@ class VideoStore(EasyFrame):
 		EasyFrame.__init__(self, title = 'Five Star Retro Video', background = '#f0f0f0')
 		self.newRental = 3
 		self.oldRental = 2
+		self.lightBack = '#f0f0f0'
+		self.darkBack = '#1e1e1e'
 		#create font objects
 		titleFont = Font(family = 'Courier New', size = 24, weight = 'bold')
 		labelFont = Font(family = 'Courier New', size = 12, weight = 'normal')
 		outputFont = Font(family = 'Courier New', size = 14, weight = 'bold')
 		#adds labels and entry fields
-		self.titleLabel = self.addLabel(text = 'Five Star Retro Video', row = 0, column = 0, columnspan = 2, sticky = 'NSEW', background = '#f0f0f0', font = titleFont)
-		self.newLabel = self.addLabel(text = 'New videos being rented:', row = 1, column = 0, font = labelFont, sticky = 'E', background = '#f0f0f0')
+		self.titleLabel = self.addLabel(text = 'Five Star Retro Video', row = 0, column = 0, columnspan = 2, sticky = 'NSEW', background = self.lightBack, font = titleFont)
+		self.newLabel = self.addLabel(text = 'New videos being rented:', row = 1, column = 0, font = labelFont, sticky = 'E', background = self.lightBack)
 		self.newField = self.addIntegerField(value = 0, row = 1, column = 1, sticky = 'W')
-		self.oldLabel = self.addLabel(text = 'Old videos being rented:', row = 2, column = 0, font = labelFont, sticky = 'E', background = '#f0f0f0')
+		self.oldLabel = self.addLabel(text = 'Old videos being rented:', row = 2, column = 0, font = labelFont, sticky = 'E', background = self.lightBack)
 		self.oldField = self.addIntegerField(value = 0, row = 2, column = 1, sticky = 'W')
-		self.outputLabel = self.addLabel(text = 'Total Cost:', row = 4, column = 0, font = labelFont, sticky = 'E', background = '#f0f0f0')
-		self.totalLabel = self.addLabel(text = '$0', row = 4, column = 1, sticky = 'W', font = outputFont, background = '#f0f0f0', foreground = 'red')
+		self.outputLabel = self.addLabel(text = 'Total Cost:', row = 4, column = 0, font = labelFont, sticky = 'E', background = self.lightBack)
+		self.totalLabel = self.addLabel(text = '$0', row = 4, column = 1, sticky = 'W', font = outputFont, background = self.lightBack, foreground = 'red')
 		#add command button
 		self.addButton(text = 'Calculate Cost', row = 3, column = 0, columnspan = 2, command = self.totalCost)
 		#dark mode toggle
@@ -47,26 +49,26 @@ class VideoStore(EasyFrame):
 		#changes color scheme to darkmode using checkbutton
 		if self.darkCB.isChecked():
 			self.setBackground('#f0f0f0')
-			self.titleLabel['background'] = '#f0f0f0'
+			self.titleLabel['background'] = self.lightBack
 			self.titleLabel['foreground'] = 'black'
-			self.newLabel['background'] = '#f0f0f0'
+			self.newLabel['background'] = self.lightBack
 			self.newLabel['foreground'] = 'black'
-			self.oldLabel['background'] = '#f0f0f0'
+			self.oldLabel['background'] = self.lightBack
 			self.oldLabel['foreground'] = 'black'
-			self.outputLabel['background'] = '#f0f0f0'
+			self.outputLabel['background'] = self.lightBack
 			self.outputLabel['foreground'] = 'black'
-			self.totalLabel['background'] = '#f0f0f0'
+			self.totalLabel['background'] = self.lightBack
 		else:
 			self.setBackground('#1e1e1e')
-			self.titleLabel['background'] = '#1e1e1e'
+			self.titleLabel['background'] = self.darkBack
 			self.titleLabel['foreground'] = 'white'
-			self.newLabel['background'] = '#1e1e1e'
+			self.newLabel['background'] = self.darkBack
 			self.newLabel['foreground'] = 'white'
-			self.oldLabel['background'] = '#1e1e1e'
+			self.oldLabel['background'] = self.darkBack
 			self.oldLabel['foreground'] = 'white'
-			self.outputLabel['background'] = '#1e1e1e'
+			self.outputLabel['background'] = self.darkBack
 			self.outputLabel['foreground'] = 'white'
-			self.totalLabel['background'] = '#1e1e1e'
+			self.totalLabel['background'] = self.darkBack
 
 			
 def main():
